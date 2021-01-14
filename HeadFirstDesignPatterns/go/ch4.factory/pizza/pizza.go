@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-type PizzaMaking interface {
+type making interface {
 	Prepare()
 }
 
@@ -12,6 +12,7 @@ type Pizza struct {
 	Name string
 	Dough string
 	Sause string
+	making
 }
 
 
@@ -30,29 +31,27 @@ func (p *Pizza) Box() {
 }
 
 
-
 type NYStyleCheesePizza struct {
 	Pizza
 }
 
 
 func (n *NYStyleCheesePizza) Prepare() {
-	fmt.Println("Preparing " + n.Name);
+	fmt.Printf("Preparing: %s \n", n);
 	fmt.Println("Tossing dough... ");
 }
 
 
+func init() {
+	fmt.Println("init of pizza package");
+}
+
+
 func (n *NYStyleCheesePizza) init() {
-	fmt.Println("init of NYStyleCheesePizza");
+	fmt.Println("init of NYStyleCheesePizza struct");
 	n.Pizza = Pizza {
 		Name: "New York Style Cheese Pizza",
 		Dough: "Thin Crush",
 		Sause: "Marinara",
 		}
-}
-
-
-func foo() {
-	var nyPizza NYStyleCheesePizza
-	nyPizza.Prepare()
 }

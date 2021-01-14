@@ -5,15 +5,17 @@ import (
 	"log"
 	"os"
 
-	_ "headfirst.design.patterns/factory/ingredient"
+	_ "headfirst.design.patterns/factory/pizza"
 
-	pizza "headfirst.design.patterns/factory/pizza"
+	pizzaStore "headfirst.design.patterns/factory/pizzastore"
 
 )
 
 func main() {
-	var nyPizza pizza.NYStyleCheesePizza
-	nyPizza.Prepare()
+	pizzaStore := pizzaStore.PizzaStore{new(pizzaStore.NYPizzaStore)}
+	pizza := pizzaStore.OrderPizza("cheese")
+
+	fmt.Println("Ethan ordered a " + pizza.Name );
 }
 
 func init() {
