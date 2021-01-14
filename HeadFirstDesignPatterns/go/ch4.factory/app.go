@@ -6,10 +6,14 @@ import (
 	"os"
 
 	_ "headfirst.design.patterns/factory/ingredient"
+
+	pizza "headfirst.design.patterns/factory/pizza"
+
 )
 
 func main() {
-	fmt.Print("Hello world")
+	var nyPizza pizza.NYStyleCheesePizza
+	nyPizza.Prepare()
 }
 
 func init() {
