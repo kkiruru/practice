@@ -5,18 +5,23 @@ import (
 )
 
 
-type Store interface {
+type PizzaStore interface {
 	createPizza(pizzaType string) pizza.Pizza
 }
 
-
-type PizzaStore struct {
-	Store
+type Store struct {
+	PizzaStore
 }
 
 
-func (s *PizzaStore) OrderPizza(pizzaType string) pizza.Pizza {
-	pizza := s.createPizza(pizzaType)
+func (store *Store) OrderPizza(pizzaType string) pizza.Pizza {
+	pizza := store.createPizza(pizzaType)
+
+	pizza.Prepare();
+	pizza.Bake();
+	pizza.Cut();
+	pizza.Box();
+
 	return pizza
 }
 
@@ -24,6 +29,6 @@ func (s *PizzaStore) OrderPizza(pizzaType string) pizza.Pizza {
 type NYPizzaStore struct {}
 
 func (s *NYPizzaStore) createPizza(pizzaType string) pizza.Pizza {
-	var p pizza.Pizza
+	p := pizza.Pizza{new(pizza.NYStyleCheesePizza)}
 	return p
 }
