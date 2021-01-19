@@ -28,10 +28,10 @@ func (store *Store) OrderPizza(pizzaType string) pizza.Pizza {
 
 type NYPizzaStore struct {}
 
-func (s *NYPizzaStore) createPizza(pizzaType string) pizza.Pizza {
+func (s NYPizzaStore) createPizza(pizzaType string) pizza.Pizza {
 
-	ny := new(pizza.NYStyleCheesePizza)
+	ny := pizza.NYStyleCheesePizza{}
 
-	p := pizza.Pizza{Abstract: ny}
+	p := ny
 	return p
 }
