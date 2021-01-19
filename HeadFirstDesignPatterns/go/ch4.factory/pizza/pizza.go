@@ -4,6 +4,9 @@ import (
 	"fmt"
 )
 
+func init() {
+	fmt.Println("pizza package의 init 함수")
+}
 
 type Pizza interface {
 	Bake()
@@ -14,34 +17,26 @@ type Pizza interface {
 
 type property struct {
 	Name string
+	Price float64
 }
 
-type Parent struct {
+type parent struct {
 	Pizza
 	property
 }
 
-type NYStyleCheesePizza struct {
-	Parent
-}
 
-
-func (p Parent) Bake() {
+func (p parent) Bake() {
 	fmt.Println("Bake for 25 minutes at 350")
 }
 
 
-func (p Parent) Cut() {
+func (p parent) Cut() {
 	fmt.Println("Cutting the pizza into diagonal slices")
 }
 
 
-func (p Parent) Box() {
+func (p parent) Box() {
 	fmt.Println("Place pizza in official PizzaStore box")
 }
 
-
-func (n NYStyleCheesePizza) Prepare() {
-	fmt.Println("Prepare NYStyleCheesePizza")
-	n.Name = "뉴욕 피자"
-}
