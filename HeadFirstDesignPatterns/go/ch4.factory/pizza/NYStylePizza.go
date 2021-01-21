@@ -4,16 +4,17 @@ import (
 	"fmt"
 )
 
-func init() {
-	fmt.Println("pizza package의 NYUStyleCheesePizza 파일의 init 함수")
-}
-
-
 type NYStyleCheesePizza struct {
-	parent
+	Pizza
 }
 
 func (n NYStyleCheesePizza) Prepare() {
-	fmt.Println("Prepare " + n.Name)
+	fmt.Println("Prepare " + n.Name )
 }
 
+
+func NewNYStyleCheesePizza() (*Pizza) {
+	pizza := NYStyleCheesePizza{Pizza{property: property{Name:"뉴욕치즈피자", Price:25.98}}}
+	pizza.Pizza.abstract = pizza
+	return &pizza.Pizza
+}

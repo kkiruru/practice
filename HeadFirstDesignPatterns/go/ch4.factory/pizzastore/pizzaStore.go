@@ -10,17 +10,17 @@ func init() {
 }
 
 
-type PizzaStore interface {
-	OrderPizza(pizzaType string) pizza.Pizza
+type Abstract interface {
 	createPizza(pizzaType string) pizza.Pizza
 }
 
-type Store struct {
-	PizzaStore
+
+type PizzaStore struct {
+	Abstract
 }
 
 
-func (store Store) OrderPizza(pizzaType string) pizza.Pizza {
+func (store PizzaStore) OrderPizza(pizzaType string) pizza.Pizza {
 	pizza := store.createPizza(pizzaType)
 
 	pizza.Prepare();
@@ -32,12 +32,10 @@ func (store Store) OrderPizza(pizzaType string) pizza.Pizza {
 }
 
 
-type NYPizzaStore struct {
-	Store
-}
+type NYPizzaStore struct {}
 
-func (s NYPizzaStore) createPizza(pizzaType string) pizza.Pizza {
-	pizza := pizza.NYStyleCheesePizza{}
-	pizza.Name = "뉴욕피자"
-	return pizza
+
+func (pizzaStore NYPizzaStore) createPizza(pizzaType string) pizza.Pizza {
+	pizza := pizza.NewNYStyleCheesePizza()
+	return *pizza
 }
