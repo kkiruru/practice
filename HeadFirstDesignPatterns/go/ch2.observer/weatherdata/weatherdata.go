@@ -1,7 +1,7 @@
 package weatherdata
 
 type Observer interface {
-	Update(temp float32, humidity float32)
+	Update(temp float32, humidity float32, pressure float32)
 }
 
 type Subject interface {
@@ -19,6 +19,7 @@ type WeatherData struct {
 
 func (w *WeatherData) RegisterObserver(o Observer) {
 	w.observers = append(w.observers, &o)
+	w.Temperature = 0
 }
 
 func (w *WeatherData) removeObserver(o *Observer) {
@@ -34,7 +35,7 @@ func (w *WeatherData) removeObserver(o *Observer) {
 func (w *WeatherData) notifyObserver() {
 	var o *Observer
 	for _, o = range w.observers {
-		(*o).Update(w.Temperature, w.Humidity)
+		(*o).Update(w.Temperature, w.Humidity, w.Pressure)
 	}
 }
 

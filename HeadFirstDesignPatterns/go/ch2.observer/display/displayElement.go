@@ -13,20 +13,21 @@ type DisplayElement interface {
 type CurrentConditionsDisplay struct {
 	temperature float32
 	humidity    float32
-	weatherData weatherdata.Subject
+	pressure	float32
+	weatherData *weatherdata.Subject
 }
 
 func NewCurrentConditionsDisplay(subject weatherdata.Subject) CurrentConditionsDisplay {
 	instance := CurrentConditionsDisplay{}
-	subject.RegisterObserver(&instance)
-	instance.weatherData = subject
+	subject.RegisterObserver(instance)
+	instance.weatherData = &subject
 	return instance
 }
 
-
-func (d CurrentConditionsDisplay) Update(temp float32, humidity float32) {
+func (d CurrentConditionsDisplay) Update(temp float32, humidity float32, pressure float32) {
 	d.temperature = temp
 	d.humidity = humidity
+	d.pressure = pressure
 	d.Display()
 }
 

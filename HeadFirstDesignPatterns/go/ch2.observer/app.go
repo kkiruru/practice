@@ -17,6 +17,4 @@ func main() {
 	weatherData.SetMeasurements(78, 90, 29.2)
 
 	fmt.Println("end")
-
-
 }
