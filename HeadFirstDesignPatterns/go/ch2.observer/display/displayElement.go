@@ -17,14 +17,14 @@ type CurrentConditionsDisplay struct {
 	weatherData *weatherdata.Subject
 }
 
-func NewCurrentConditionsDisplay(subject weatherdata.Subject) CurrentConditionsDisplay {
+func NewCurrentConditionsDisplay(subject weatherdata.Subject) *CurrentConditionsDisplay {
 	instance := CurrentConditionsDisplay{}
-	subject.RegisterObserver(instance)
+	subject.RegisterObserver(&instance)
 	instance.weatherData = &subject
-	return instance
+	return &instance
 }
 
-func (d CurrentConditionsDisplay) Update(temp float32, humidity float32, pressure float32) {
+func (d *CurrentConditionsDisplay) Update(temp float32, humidity float32, pressure float32) {
 	d.temperature = temp
 	d.humidity = humidity
 	d.pressure = pressure
