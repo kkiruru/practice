@@ -5,69 +5,69 @@ import (
 )
 
 type Mocha struct {
-	beverage beverage.Beverage
+	decorator beverage.Beverage
 }
 
 func AddMocha(b beverage.Beverage) beverage.Beverage {
-	c := Mocha{beverage: b}
+	c := Mocha{decorator: b}
 	return c
 }
 
-func (e Mocha) Cost() (cost float32) {
-	return 0.20 + e.beverage.Cost()
+func (b Mocha) Cost() (cost float32) {
+	return 0.20 + b.decorator.Cost()
 }
 
-func (e Mocha) Description() string {
-	return (e.beverage.Description() + ", 모카")
+func (b Mocha) Description() string {
+	return (b.decorator.Description() + ", 모카")
 }
 
 type Whip struct {
-	beverage beverage.Beverage
+	decorator beverage.Beverage
 }
 
 func AddWhip(b beverage.Beverage) beverage.Beverage {
-	c := Whip{beverage: b}
+	c := Whip{decorator: b}
 	return c
 }
 
-func (e Whip) Cost() (cost float32) {
-	return 0.10 + e.beverage.Cost()
+func (b Whip) Cost() (cost float32) {
+	return 0.10 + b.decorator.Cost()
 }
 
-func (e Whip) Description() string {
-	return (e.beverage.Description() + ", 휘핑 크림")
+func (b Whip) Description() string {
+	return (b.decorator.Description() + ", 휘핑 크림")
 }
 
 type Soy struct {
-	beverage beverage.Beverage
+	decorator beverage.Beverage
 }
 
 func AddSoy(b beverage.Beverage) beverage.Beverage {
-	c := Soy{beverage: b}
+	c := Soy{decorator: b}
 	return c
 }
 
 func (e Soy) Cost() (cost float32) {
-	return 0.15 + e.beverage.Cost()
+	return 0.15 + e.decorator.Cost()
 }
 
 func (e Soy) Description() string {
-	return (e.beverage.Description() + ", 두유")
+	return (e.decorator.Description() + ", 두유")
 }
 
 type SteamMilk struct {
-	beverage beverage.Beverage
+	decorator beverage.Beverage
 }
 
 func AddSteamMilk(b beverage.Beverage) beverage.Beverage {
-	c := SteamMilk{beverage: b}
+	c := SteamMilk{decorator: b}
 	return c
 }
 
-func (e SteamMilk) Cost() (cost float32) {
-	return 0.10 + e.beverage.Cost()
+func (b SteamMilk) Cost() (cost float32) {
+	return 0.10 + b.decorator.Cost()
 }
 
-func (e SteamMilk) Description() string {
-	return (e.beverage.Description() + ", 스팀 밀크")
+func (b SteamMilk) Description() string {
+	return (b.decorator.Description() + ", 스팀 밀크")
 }
