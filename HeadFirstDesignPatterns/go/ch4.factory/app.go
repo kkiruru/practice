@@ -6,6 +6,6 @@ import (
 
 
 func main() {
-	var pizzastore pizzastore.PizzaStore = pizzastore.PizzaStore{pizzastore.NYPizzaStore{}}
-	pizzastore.OrderPizza("cheese")
+	var pizzaStore pizzastore.PizzaStore = pizzastore.PizzaStore{Abstract: pizzastore.NYPizzaStore{}}
+	pizzaStore.OrderPizza("cheese")
 }
