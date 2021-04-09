@@ -3,17 +3,20 @@ package main
 import "fmt"
 
 type Tea struct {
+	CaffeineBeverage
+}
+
+func NewTea() *Tea {
+	tea := Tea{}
+	tea.abstract = &tea
+	return &tea
 }
 
 func (t *Tea) PrepareRecipe() {
-	t.boilWater()
+	t.BoilWater()
 	t.steepTeaBag()
 	t.addLemon()
-	t.pourInCup()
-}
-
-func (t *Tea) boilWater() {
-	fmt.Println("물 끓이는 중")
+	t.PourInCup()
 }
 
 func (t *Tea) steepTeaBag() {
@@ -22,8 +25,4 @@ func (t *Tea) steepTeaBag() {
 
 func (t *Tea) addLemon() {
 	fmt.Println("레몬을 추가하는 중")
-}
-
-func (t *Tea) pourInCup() {
-	fmt.Println("컵에 따르는 중")
 }

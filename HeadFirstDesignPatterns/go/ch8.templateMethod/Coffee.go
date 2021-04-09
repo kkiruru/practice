@@ -3,25 +3,24 @@ package main
 import "fmt"
 
 type Coffee struct {
+	CaffeineBeverage
+}
+
+func NewCoffee() *Coffee {
+	coffee := Coffee{}
+	coffee.abstract = &coffee
+	return &coffee
 }
 
 func (c *Coffee) PrepareRecipe() {
-	c.boilWater()
+	c.BoilWater()
 	c.brewCoffeeGrinds()
-	c.pourInCup()
+	c.PourInCup()
 	c.addSugarAndMilk()
-}
-
-func (c *Coffee) boilWater() {
-	fmt.Println("물 끓이는 중")
 }
 
 func (c *Coffee) brewCoffeeGrinds() {
 	fmt.Println("필터를 통해서 커피를 우려내는 중")
-}
-
-func (c *Coffee) pourInCup() {
-	fmt.Println("컵에 따르는 중")
 }
 
 func (c *Coffee) addSugarAndMilk() {

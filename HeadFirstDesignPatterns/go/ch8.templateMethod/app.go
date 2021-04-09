@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	coffee := &Coffee{}
+	coffee := NewCoffee()
 	coffee.PrepareRecipe()
 
 	tea := &Tea{}
