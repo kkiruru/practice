@@ -1,5 +1,24 @@
+
 public class PopcornPopper {
-    public void on() {}
-    public void off() {}
-    public void pop() {}
+    String description;
+
+    public PopcornPopper(String description) {
+        this.description = description;
+    }
+
+    public void on() {
+        System.out.println(description + " on");
+    }
+
+    public void off() {
+        System.out.println(description + " off");
+    }
+
+    public void pop() {
+        System.out.println(description + " popping popcorn!");
+    }
+
+    public String toString() {
+        return description;
+    }
 }

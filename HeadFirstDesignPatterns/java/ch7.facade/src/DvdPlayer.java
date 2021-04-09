@@ -1,46 +1,60 @@
 public class DvdPlayer {
-    private Amplifier amp;
-
+    String description;
+    int currentTrack;
+    Amplifier amplifier;
     String movie;
 
-    public DvdPlayer(Amplifier amp) {
-        this.amp = amp;
+    public DvdPlayer(String description, Amplifier amplifier) {
+        this.description = description;
+        this.amplifier = amplifier;
     }
 
     public void on() {
-        System.out.println("DvdPlayer on");
+        System.out.println(description + " on");
     }
 
     public void off() {
-        System.out.println("DvdPlayer off");
+        System.out.println(description + " off");
     }
 
     public void eject() {
-        System.out.println("DvdPlayer eject");
-    }
-
-    public void pause() {
-        System.out.println("DvdPlayer pause");
-    }
-
-    public void play() {
-        System.out.println("DvdPlayer play " + movie );
+        movie = null;
+        System.out.println(description + " eject");
     }
 
     public void play(String movie) {
         this.movie = movie;
-        System.out.println("DvdPlayer play " + movie );
+        currentTrack = 0;
+        System.out.println(description + " playing \"" + movie + "\"");
+    }
+
+    public void play(int track) {
+        if (movie == null) {
+            System.out.println(description + " can't play track " + track + " no dvd inserted");
+        } else {
+            currentTrack = track;
+            System.out.println(description + " playing track " + currentTrack + " of \"" + movie + "\"");
+        }
     }
 
     public void stop() {
-        System.out.println("DvdPlayer stop");
+        currentTrack = 0;
+        System.out.println(description + " stopped \"" + movie + "\"");
     }
 
-    public void setSurroundAudio() {
-        System.out.println("DvdPlayer set surround audio");
+    public void pause() {
+        System.out.println(description + " paused \"" + movie + "\"");
     }
 
     public void setTwoChannelAudio() {
-        System.out.println("DvdPlayer set stereo audio");
+        System.out.println(description + " set two channel audio");
+    }
+
+    public void setSurroundAudio() {
+        System.out.println(description + " set surround audio");
+    }
+
+    public String toString() {
+        return description;
     }
 }
