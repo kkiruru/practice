@@ -1,9 +1,11 @@
 package main
 
 func main() {
-	coffee := NewCoffee()
-	coffee.PrepareRecipe()
+	var beverage *CaffeineBeverage
 
-	tea := &Tea{}
-	tea.PrepareRecipe()
+	beverage = NewCoffee()
+	beverage.PrepareRecipe()
+
+	beverage = NewTea()
+	beverage.PrepareRecipe()
 }

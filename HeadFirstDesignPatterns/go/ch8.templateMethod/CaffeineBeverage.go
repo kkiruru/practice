@@ -2,20 +2,21 @@ package main
 
 import "fmt"
 
-type abstract interface {
+type Abstract interface {
 	PrepareRecipe()
-	BoilWater()
-	PourInCup()
+
+	boilWater()
+	pourInCup()
 }
 
 type CaffeineBeverage struct {
-	abstract
+	Abstract
 }
 
-func (c *CaffeineBeverage) BoilWater() {
+func (c *CaffeineBeverage) boilWater() {
 	fmt.Println("물 끓이는 중..")
 }
 
-func (c *CaffeineBeverage) PourInCup() {
+func (c *CaffeineBeverage) pourInCup() {
 	fmt.Println("컵에 따르는 중..")
 }

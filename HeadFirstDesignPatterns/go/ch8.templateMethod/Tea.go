@@ -6,17 +6,17 @@ type Tea struct {
 	CaffeineBeverage
 }
 
-func NewTea() *Tea {
+func NewTea() *CaffeineBeverage {
 	tea := Tea{}
-	tea.abstract = &tea
-	return &tea
+	tea.CaffeineBeverage.Abstract = &tea
+	return &tea.CaffeineBeverage
 }
 
 func (t *Tea) PrepareRecipe() {
-	t.BoilWater()
+	t.boilWater()
 	t.steepTeaBag()
 	t.addLemon()
-	t.PourInCup()
+	t.pourInCup()
 }
 
 func (t *Tea) steepTeaBag() {

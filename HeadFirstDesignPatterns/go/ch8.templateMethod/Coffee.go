@@ -6,16 +6,16 @@ type Coffee struct {
 	CaffeineBeverage
 }
 
-func NewCoffee() *Coffee {
+func NewCoffee() *CaffeineBeverage {
 	coffee := Coffee{}
-	coffee.abstract = &coffee
-	return &coffee
+	coffee.CaffeineBeverage.Abstract = &coffee
+	return &coffee.CaffeineBeverage
 }
 
 func (c *Coffee) PrepareRecipe() {
-	c.BoilWater()
+	c.boilWater()
 	c.brewCoffeeGrinds()
-	c.PourInCup()
+	c.pourInCup()
 	c.addSugarAndMilk()
 }
 
