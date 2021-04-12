@@ -3,14 +3,19 @@ package main
 import "fmt"
 
 type Abstract interface {
-	PrepareRecipe()
-
-	boilWater()
-	pourInCup()
+	brew()
+	addCondiments()
 }
 
 type CaffeineBeverage struct {
 	Abstract
+}
+
+func (c *CaffeineBeverage) PrepareRecipe() {
+	c.boilWater()
+	c.brew()
+	c.pourInCup()
+	c.addCondiments()
 }
 
 func (c *CaffeineBeverage) boilWater() {

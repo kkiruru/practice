@@ -12,17 +12,10 @@ func NewCoffee() *CaffeineBeverage {
 	return &coffee.CaffeineBeverage
 }
 
-func (c *Coffee) PrepareRecipe() {
-	c.boilWater()
-	c.brewCoffeeGrinds()
-	c.pourInCup()
-	c.addSugarAndMilk()
-}
-
-func (c *Coffee) brewCoffeeGrinds() {
+func (c *Coffee) brew() {
 	fmt.Println("필터를 통해서 커피를 우려내는 중")
 }
 
-func (c *Coffee) addSugarAndMilk() {
+func (c *Coffee) addCondiments() {
 	fmt.Println("설탕과 우유를 추가하는 중")
 }
